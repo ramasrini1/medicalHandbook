@@ -1,0 +1,27 @@
+<template name="Remedy">
+	<article class="remedy {{#if inFav}}in-fav{{/if}}">
+		<h3>{{name}}</h3>
+		
+		{{#if editMode}}
+			{{>quickForm collection="Remedies" id=updateRemedyId type="update" 
+			doc=this autosave=true }}
+		{{else}}
+			<p>{{desc}}</p>
+			<p>
+				{{#each ingredients}}
+					<span class="ingredient">{{name}}-{{amount}}</span>
+				{{/each}}
+			</p>
+			<!--- <a href="/remedy/{{_id}}">View Details</a> -->
+			{{#if inFav}}
+				<button class="btn-primary toggle-fav">Remove Favorites</button>
+			{{else}}
+				<button class="btn-deny toggle-fav">Add To Favorites</button>
+			{{/if}}
+		{{/if}}
+
+		<i class="fa fa-pencil"></i>
+		<i class="fa fa-trash"></i>
+
+	</article>
+</template>

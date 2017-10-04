@@ -1,0 +1,15 @@
+<template name="Favorites">
+	<h1 class="page-title">My Current Favorites</h1>
+	{{#each remedies}}
+		{{> FavItem}}
+	{{else}}
+	 	<h3>Please add <a href="/remedy-book">remedies</a> to your favorites</h3>
+	{{/each}}
+</template>
+
+<template name="FavItem">
+	<div class="fav-item">
+		<h3>{{name}}</h3>
+		<p>{{desc}}</p>
+	</div>
+</template>
